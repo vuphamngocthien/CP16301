@@ -39,7 +39,7 @@ router.get("/bang-san-pham",[authentication.checkLogin],  async function (req, r
   let {body , file } = req;
   let image = '';
   if (file){
-    image = `http:// 10.82.148.18:3000/images/${file.filename}`
+    image = `https://vups17505.herokuapp.com//images/${file.filename}`
   }
   body = {...body,image}
   // dấu... có td: thêm 1 thuốc tính vô thêm , đưa thuộc tính hình vào trong body
@@ -94,7 +94,7 @@ router.get("/bang-san-pham/:id/edit", [authentication.checkLogin], async functio
   let {body , file, params } = req;
   delete body.image;
   if (file){
-    let image = `http:// 10.82.148.18:3000/images/${file.filename}`
+    let image = `https://vups17505.herokuapp.com/images/${file.filename}`
     body = {...body,image}
   }
   console.log('body_edit = ' , body);
