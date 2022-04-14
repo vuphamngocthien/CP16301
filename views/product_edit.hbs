@@ -1,0 +1,128 @@
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+<div class="navbar navbar-inverse set-radius-zero" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/san-pham">
+
+                    <img src="images/logo.png" />
+                </a>
+
+            </div>
+
+            <div class="right-div">
+                <a href="/dang-xuat" class="btn btn-danger pull-right">LOG ME OUT</a>
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a href="/san-pham" class="menu-top-active">Trang chủ</a></li>
+                           
+                            <li><a href="form.html">FORMS</a></li>
+                            <li>
+                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Danh sách phân loại \/<i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="san-pham/bang-san-pham">Bảng phân loại</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="danh-muc">Bảng sản phẩm</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="tab.html">TABS & PANELS</a></li>
+                             <li><a href="table.html">TABLES</a></li>
+                            <li><a href="blank.html">BLANK PAGE</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<!-- MENU SECTION END-->
+<div class="content-wrapper" >
+    <div class="container">
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h1 class="header-line">Chi Tiết Sản Phẩm</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="margin: auto;">
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <form role="form" method="post" action="/san-pham/bang-san-pham/{{product._id}}/edit"
+                            enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" type="text" value="{{product.name}}" name="name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input class="form-control" type="number" value="{{product.price}}" name="price" />
+                            </div>
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input class="form-control" type="number" value="{{product.quantity}}" name="quantity" />
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" type="description"
+                                    name="description">{{product.description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="form-control" name="category_id">
+                                    {{#each categories}}
+                                    {{#if this.selected}}
+                                    <option selected value="{{this._id}}">{{this.name}}</option>
+                                    {{else}}
+                                     <option value="{{this._id}}">{{this.name}}</option>
+                                    {{/if}}
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input class="form-control" name="image" type="file" />
+                                <img width="300" height="300" src="{{product.image}}" />
+                            </div>
+                            <div class="form-group">
+                                <label>Released</label>
+                                <input class="form-control" value="{{product.released}}" name="released" type="date" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-reset">Reset</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
