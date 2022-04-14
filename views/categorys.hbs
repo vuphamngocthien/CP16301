@@ -168,7 +168,7 @@
      <script>
   const edit = (id) =>{
     // http://localhost:3000/san-pham/:id/edit
-    window.location.href=`http://localhost:3000/san-pham/danh-muc/${id}/edit`
+    window.location.href=`http://vups17505.herokuapp.com/san-pham/danh-muc/${id}/edit`
   }
   
   let deleted_id;
@@ -183,7 +183,7 @@
     }
 
     const onDelete = async () => {
-        const url = `http://localhost:3000/san-pham/danh-muc/${deleted_id}/delete`;
+        const url = `https://vups17505.herokuapp.com/san-pham/danh-muc/${deleted_id}/delete`;
         const option = {
             method: 'delete',
             headers: { 'Content-Type': 'application/json' }
